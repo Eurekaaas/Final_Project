@@ -80,12 +80,10 @@ swup.on('pageView', ()=>{
     }
   ]
 
-  // 随机生成newData 打乱顺序
   const newData = data.sort(()=>{
     return 0.5 - Math.random()
   })
 
-  // 数据插入DOM
   for(let i=0;i<dropdowns.length;i++){
     dropdowns[i].innerHTML = `
     <h1>${data[i].h1}</h1>
@@ -103,12 +101,6 @@ swup.on('pageView', ()=>{
 
     const currentDropdown = item
     const currentContent = currentDropdown.querySelector('.dropdownContent')
-
-    /* --------------------------
-      1. 当鼠标移入currentDropdown时
-      2. 检测currentContent底部和右边的边界是否超出屏幕
-      3. 如果超出屏幕，则让content移动到标签上方去
-    -------------------------- */
 
     currentDropdown.addEventListener('mouseover', ev=>{
       const contentRect = currentContent.getBoundingClientRect()
